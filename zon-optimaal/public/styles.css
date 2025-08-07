@@ -1,0 +1,115 @@
+:root {
+  --bg: #0d1117;
+  --text: #ffffff;
+  --accent: #1f6feb;
+  --accent-light: #3ea6ff;
+  --radius: 10px;
+  --font: 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.6;
+  padding: 0 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid #222;
+}
+
+.logo a {
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+.logo span {
+  color: var(--text);
+}
+
+nav a {
+  margin-left: 1rem;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+nav a:hover {
+  color: var(--accent-light);
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+.hero h1 {
+  font-size: 2rem;
+  color: var(--accent-light);
+}
+.hero p {
+  max-width: 600px;
+  margin: 1rem auto;
+}
+.cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: bold;
+}
+.cta:hover {
+  background: var(--accent-light);
+}
+
+section {
+  padding: 2rem 0;
+}
+.diensten ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+.diensten li {
+  margin: 0.5rem 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.card {
+  background: #161b22;
+  border: 1px solid #222;
+  padding: 1rem;
+  border-radius: var(--radius);
+}
+
+.banner {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem 1rem;
+  background: #12161d;
+  border-radius: var(--radius);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  color: #aaa;
+}
