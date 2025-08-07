@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block access to admin areas
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /wp-login/
+
+# Sitemap location
+Sitemap: https://zonoptimaal.nl/sitemap.xml
