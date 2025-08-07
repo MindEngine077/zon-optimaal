@@ -163,23 +163,23 @@
 <script setup lang="ts">
 // SEO metadata
 useHead({
-  title: 'Zon Optimaal - Verdienen met je eigen energie',
+  title: 'Zon Optimaal - Verdienen met je eigen energie | #1 in zonnepanelen 2025',
   meta: [
     {
       name: 'description',
-      content: 'Zon Optimaal helpt u verdienen met uw eigen energie. Wij leveren hoogwaardige zonnepanelen, energieopslag en advies voor particulieren en bedrijven in heel Nederland.'
+      content: 'Zon Optimaal helpt u verdienen met uw eigen energie. Bespaar tot 70% op uw energierekening met onze hoogwaardige zonnepanelen in 2025. Vraag nu een gratis offerte aan!'
     },
     {
       name: 'keywords',
-      content: 'zonnepanelen, zonne-energie, duurzame energie, energiebesparing, groene energie, subsidie zonnepanelen, zonnepanelen installatie, Kessel, Limburg, Nederland'
+      content: 'zonnepanelen 2025, zonne-energie, duurzame energie, energiebesparing, groene energie, subsidie zonnepanelen, zonnepanelen installatie, zonnepanelen kosten, zonnepanelen rendement, terugverdientijd zonnepanelen'
     },
     {
       property: 'og:title',
-      content: 'Zon Optimaal - Verdienen met je eigen energie'
+      content: 'Zon Optimaal - Verdienen met je eigen energie | Bespaar tot 70%'
     },
     {
       property: 'og:description',
-      content: 'Zon Optimaal helpt u verdienen met uw eigen energie. Ontdek onze hoogwaardige zonnepanelen en energieoplossingen.'
+      content: 'Zon Optimaal helpt u verdienen met uw eigen energie. Ontdek onze hoogwaardige zonnepanelen en energieoplossingen voor maximale besparing in 2025.'
     },
     {
       property: 'og:image',
@@ -192,6 +192,22 @@ useHead({
     {
       property: 'og:type',
       content: 'website'
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      name: 'twitter:title',
+      content: 'Zon Optimaal - Verdienen met je eigen energie | Bespaar tot 70%'
+    },
+    {
+      name: 'twitter:description',
+      content: 'Zon Optimaal helpt u verdienen met uw eigen energie. Ontdek onze hoogwaardige zonnepanelen en energieoplossingen voor maximale besparing in 2025.'
+    },
+    {
+      name: 'twitter:image',
+      content: 'https://zonoptimaal.nl/images/og-image.jpg'
     }
   ],
   link: [
@@ -210,21 +226,26 @@ const form = reactive({
 })
 
 const onSubmit = async () => {
-  // In a real application, you would submit this to your Supabase database
+  // In a real application, you would submit this to a database
   console.log('Form submitted:', form)
   
   try {
-    // Example of how to save to Supabase
-    // const { data, error } = await useSupabaseClient()
-    //   .from('leads')
-    //   .insert([
-    //     { 
-    //       name: form.name, 
-    //       email: form.email, 
-    //       phone: form.phone,
-    //       source: 'homepage'
-    //     }
-    //   ])
+    // Example of how to save leads
+    const response = await fetch('/api/leads', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        source: 'homepage'
+      })
+    })
+    
+    const result = await response.json()
+    console.log('Result:', result)
     
     // Handle success/error
   } catch (error) {

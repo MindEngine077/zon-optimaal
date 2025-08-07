@@ -1,0 +1,59 @@
+User-agent: *
+Allow: /
+
+# Primary Landing Pages - Top Priority
+Allow: /offerte
+Allow: /contact
+Allow: /zonnepanelen
+Allow: /over-ons
+Allow: /diensten
+Allow: /projecten
+Allow: /blog
+
+# Secondary Pages
+Allow: /installatie
+Allow: /kosten
+Allow: /subsidie
+Allow: /faq
+Allow: /terugverdientijd
+Allow: /thuisbatterij
+Allow: /warmtepomp
+Allow: /zakelijk
+
+# Content Category Indexes
+Allow: /blog/category/
+Allow: /projecten/category/
+
+# Don't index admin areas or secure content
+Disallow: /admin/
+Disallow: /login
+Disallow: /dashboard
+Disallow: /account
+Disallow: /api/
+Disallow: /mijn-account/
+Disallow: /*.json$
+
+# Prevent access to thank you pages directly (prevents bypassing forms)
+Disallow: /bedankt
+Disallow: /thank-you
+Disallow: /succes
+
+# Don't index development environments
+Disallow: /staging/
+Disallow: /test/
+Disallow: /dev/
+
+# Prevent duplicate content issues
+Disallow: /*?*utm_
+Disallow: /*?*fbclid=
+Disallow: /*?*gclid=
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+
+# Sitemap locations - high priority for search engines
+Sitemap: https://zonoptimaal.nl/sitemap.xml
+Sitemap: https://zonoptimaal.nl/blog-sitemap.xml
+Sitemap: https://zonoptimaal.nl/projecten-sitemap.xml
+
+# Crawl delay for bot optimization - don't overload the server
+Crawl-delay: 1

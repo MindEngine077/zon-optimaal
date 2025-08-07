@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "zon-optimaal",
   "private": true,
   "type": "module",
   "scripts": {
@@ -7,7 +7,15 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "start": "node .output/server/index.mjs",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "clean": "rm -rf .nuxt .output node_modules",
+    "analyze": "nuxt analyze",
+    "setup:supabase": "./setup-supabase.sh",
+    "deploy": "./deploy.sh",
+    "deploy:preview": "./deploy.sh --preview"
   },
   "dependencies": {
     "@nuxt/content": "^3.6.3",
@@ -17,6 +25,7 @@
     "@nuxtjs/robots": "^5.4.0",
     "@nuxtjs/sitemap": "^7.4.3",
     "@nuxtjs/supabase": "^1.6.0",
+    "better-sqlite3": "^12.2.0",
     "eslint": "^9.32.0",
     "nuxt": "^4.0.1",
     "typescript": "^5.9.2",

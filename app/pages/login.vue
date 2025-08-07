@@ -77,7 +77,8 @@
 </template>
 
 <script setup lang="ts">
-import { useSupabaseClient } from '#imports'
+// Supabase is temporarily disabled
+// import { useSupabaseClient } from '#imports'
 
 definePageMeta({
   layout: 'default',
@@ -103,7 +104,7 @@ const form = reactive({
 
 const isLoading = ref(false)
 const authError = ref('')
-const supabase = useSupabaseClient()
+// const supabase = useSupabaseClient() // Temporarily disabled
 const router = useRouter()
 
 const handleLogin = async () => {
@@ -111,6 +112,18 @@ const handleLogin = async () => {
     isLoading.value = true
     authError.value = ''
     
+    // Mock authentication for development
+    setTimeout(() => {
+      if (form.email === 'admin@example.com' && form.password === 'password') {
+        // Redirect to dashboard on successful login
+        router.push('/dashboard')
+      } else {
+        authError.value = 'Ongeldige inloggegevens. Probeer opnieuw.'
+      }
+      isLoading.value = false
+    }, 1000)
+    
+    /* Temporarily disabled Supabase auth
     const { error } = await supabase.auth.signInWithPassword({
       email: form.email,
       password: form.password
@@ -123,10 +136,11 @@ const handleLogin = async () => {
     
     // Redirect to dashboard on successful login
     router.push('/dashboard')
-  } catch (error: any) {
-    authError.value = error.message || 'Er is een fout opgetreden tijdens het inloggen'
+    */
+  } catch (error) {
+    authError.value = 'Er is een fout opgetreden tijdens het inloggen'
   } finally {
-    isLoading.value = false
+    // isLoading.value = false
   }
 }
 
@@ -135,6 +149,13 @@ const handleGoogleLogin = async () => {
     isLoading.value = true
     authError.value = ''
     
+    // Mock OAuth authentication for development
+    setTimeout(() => {
+      router.push('/dashboard')
+      isLoading.value = false
+    }, 1000)
+    
+    /* Temporarily disabled Supabase auth
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
@@ -145,10 +166,11 @@ const handleGoogleLogin = async () => {
     if (error) {
       authError.value = error.message
     }
-  } catch (error: any) {
-    authError.value = error.message || 'Er is een fout opgetreden tijdens het inloggen met Google'
+    */
+  } catch (error) {
+    authError.value = 'Er is een fout opgetreden tijdens het inloggen met Google'
   } finally {
-    isLoading.value = false
+    // isLoading.value = false
   }
 }
 
@@ -157,6 +179,13 @@ const handleMicrosoftLogin = async () => {
     isLoading.value = true
     authError.value = ''
     
+    // Mock OAuth authentication for development
+    setTimeout(() => {
+      router.push('/dashboard')
+      isLoading.value = false
+    }, 1000)
+    
+    /* Temporarily disabled Supabase auth
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'azure',
       options: {
@@ -167,10 +196,11 @@ const handleMicrosoftLogin = async () => {
     if (error) {
       authError.value = error.message
     }
-  } catch (error: any) {
-    authError.value = error.message || 'Er is een fout opgetreden tijdens het inloggen met Microsoft'
+    */
+  } catch (error) {
+    authError.value = 'Er is een fout opgetreden tijdens het inloggen met Microsoft'
   } finally {
-    isLoading.value = false
+    // isLoading.value = false
   }
 }
 </script>
